@@ -295,7 +295,9 @@ Now you can do:
 =head1 DESCRIPTION
 
 This module is just like L<Perinci::Sub::Gen::AccessTable>, except that table
-data source is from DBI.
+data source is from DBI. gen_read_dbi_table_func() accept mostly the same
+arguments as gen_read_table_func(), except: 'table_name' instead of
+'table_data', and 'dbh'.
 
 Supported databases: SQLite, MySQL, PostgreSQL.
 
