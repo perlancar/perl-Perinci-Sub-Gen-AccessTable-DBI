@@ -155,15 +155,15 @@ sub _gen_read_dbi_table_func {
             for my $s (@{$query->{sorts}}) {
                 my ($f, $op, $desc) = @$s;
                 push @orders, $qi->($fspecs->{$f}{db_field} // $f).
-                    ($desc ? " DESC" : "");
+                    ($desc == -1 ? " DESC" : "");
             }
         }
         $sorted //= 1;
 
         my $paged;
         my $limit = "";
-        my ($ql, $qs) = ($query->{result_limit}, $query->{result_start});
-        if (defined($ql) || $qs > 1) {
+        my ($ql, $qs) = ($query->{result_limit}, $query->{result_start}-1);
+        if (defined($ql) || $qs > 0) {
             $limit = join(
                 "",
                 "LIMIT ".($ql // ($db eq 'Pg' ? "ALL":"999999999")),
@@ -190,7 +190,8 @@ sub _gen_read_dbi_table_func {
         while (my $row = $sth->fetchrow_hashref) { push @r, $row }
 
         {data=>\@r, paged=>$paged, filtered=>$filtered, sorted=>$sorted,
-             fields_selected=>1};
+             fields_selected=>0, # XXX i'm lazy to handle detail=0
+         };
     };
 
     gen_read_table_func(
