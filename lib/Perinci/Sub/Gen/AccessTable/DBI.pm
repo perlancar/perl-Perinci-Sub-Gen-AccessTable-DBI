@@ -225,6 +225,7 @@ In list_countries.pl:
  our %SPEC;
 
  my $res = gen_read_dbi_table_func(
+     name        => 'list_countries',
      summary     => 'func summary',     # opt
      description => 'func description', # opt
      dbh         => ...,
@@ -255,8 +256,6 @@ In list_countries.pl:
      },
  );
  die "Can't generate function: $res->[0] - $res->[1]" unless $res->[0] == 200;
- *list_countries       = $res->[2]{code};
- $SPEC{list_countries} = $res->[2]{meta};
 
  Perinci::CmdLine->new(url=>'/main/list_countries')->run;
 
