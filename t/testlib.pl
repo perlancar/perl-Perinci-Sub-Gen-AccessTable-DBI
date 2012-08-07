@@ -64,7 +64,7 @@ sub test_gen {
 }
 
 sub gen_test_data {
-    my (undef, $dbpath) = tempfile('tempXXXXX', OPEN => 0);
+    my (undef, $dbpath) = tempfile(undef, OPEN => 0);
     diag "dbpath = $dbpath";
     my $dbh = DBI->connect("dbi:SQLite:dbname=$dbpath") or die $DBI::errstr;
 
