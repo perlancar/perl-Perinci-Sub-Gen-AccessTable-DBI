@@ -15,7 +15,7 @@ sub test_gen {
     subtest $args{name} => sub {
         my $res;
         my %fargs = (
-            name       => 'foo',
+            name       => $args{func_name} // 'foo',
             install    => $args{install} // 0,
             dbh        => $args{dbh} // $main::dbh,
             table_name => $args{table_name},
