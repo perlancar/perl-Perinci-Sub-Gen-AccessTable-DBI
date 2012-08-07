@@ -58,10 +58,9 @@ $spec->{args}{dbh} = {
 };
 $SPEC{gen_read_dbi_table_func} = $spec;
 sub gen_read_dbi_table_func {
-    my %args = @_;
-
     my $self = __PACKAGE__->new;
-    $self->_gen_read_dbi_table_func(%args);
+    unshift @_, $self;
+    goto &_gen_read_dbi_table_func;
 }
 
 sub _gen_read_dbi_table_func {
@@ -194,10 +193,8 @@ sub _gen_read_dbi_table_func {
          };
     };
 
-    gen_read_table_func(
-        %args,
-        table_data => $table_data,
-    );
+    @_ = (%args, table_data => $table_data);
+    goto &gen_read_table_func;
 }
 
 1;
