@@ -7,13 +7,12 @@ use Log::Any '$log';
 use Moo; # we go OO just for the I18N, we don't store attributes, etc
 
 use Data::Clone;
-use Data::Sah;
 use DBI;
-# don't wrap to avoid adding to call stack
-use Perinci::Sub::Gen::AccessTable 0.15 gen_read_table_func => {wrap=>0};
-#use Data::Sah;
+use Perinci::Sub::Gen::AccessTable 0.17 qw(gen_read_table_func);
 
-use Perinci::Exporter;
+require Exporter;
+our @ISA       = qw(Exporter);
+our @EXPORT_OK = qw(gen_read_dbi_table_func);
 
 with 'SHARYANTO::Role::I18NMany';
 
@@ -23,6 +22,7 @@ our %SPEC;
 my $label = "(gen_read_dbi_table_func)";
 
 sub __parse_schema {
+    require Data::Sah;
     Data::Sah::normalize_schema($_[0]);
 }
 
