@@ -1,5 +1,11 @@
 Revision history for Perinci-Sub-Gen-AccessTable-DBI
 
+0.08     2013-12-12 (SHARYANTO)
+
+         - No functional changes. Switch from Locale::Maketext to
+           Locale::TextDomain.
+
+
 0.07     2013-07-19 (SHARYANTO)
 
          - No functional changes. Fix test result [CT].
