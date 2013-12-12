@@ -4,17 +4,15 @@ use 5.010001;
 use strict;
 use warnings;
 use Log::Any '$log';
-use Moo; # we go OO just for the I18N, we don't store attributes, etc
 
+use Locale::TextDomain 'Perinci-Sub-Gen-AccessTable';
 use Data::Clone;
 use DBI;
-use Perinci::Sub::Gen::AccessTable 0.17 qw(gen_read_table_func);
+use Perinci::Sub::Gen::AccessTable qw(gen_read_table_func);
 
 require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT_OK = qw(gen_read_dbi_table_func);
-
-with 'SHARYANTO::Role::I18NMany';
 
 # VERSION
 
@@ -57,13 +55,7 @@ $spec->{args}{dbh} = {
 };
 $SPEC{gen_read_dbi_table_func} = $spec;
 sub gen_read_dbi_table_func {
-    my $self = __PACKAGE__->new;
-    unshift @_, $self;
-    goto &_gen_read_dbi_table_func;
-}
-
-sub _gen_read_dbi_table_func {
-    my ($self, %args) = @_;
+    my %args = @_;
 
     # XXX schema
     my $table_name = $args{table_name}; delete $args{table_name};
