@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use Log::Any '$log';
 
-use Locale::TextDomain 'Perinci-Sub-Gen-AccessTable-DBI';
+use Locale::TextDomain::UTF8 'Perinci-Sub-Gen-AccessTable-DBI';
 use Data::Clone;
 use DBI;
 use Perinci::Sub::Gen::AccessTable qw(gen_read_table_func);
