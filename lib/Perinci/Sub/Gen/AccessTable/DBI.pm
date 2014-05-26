@@ -3,6 +3,7 @@ package Perinci::Sub::Gen::AccessTable::DBI;
 use 5.010001;
 use strict;
 use warnings;
+use experimental 'smartmatch';
 use Log::Any '$log';
 
 use Locale::TextDomain::UTF8 'Perinci-Sub-Gen-AccessTable-DBI';
