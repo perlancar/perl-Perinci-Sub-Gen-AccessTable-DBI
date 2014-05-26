@@ -109,7 +109,7 @@ sub gen_read_dbi_table_func {
             $filtered = 0; # perigen-acctbl will be doing custom_search
         }
         for my $filter (@{$query->{filters}}) {
-            my ($f, $op, $opn) = @$filter;
+            my ($f, $ftype, $op, $opn) = @$filter;
             my $qdbf = $qi->($fspecs->{$f}{db_field} // $f);
             my $qopn = $dbh->quote($opn);
             if ($op eq 'truth')     { push @wheres, $qdbf
