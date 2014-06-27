@@ -6,18 +6,19 @@ use warnings;
 use experimental 'smartmatch';
 use Log::Any '$log';
 
+use Function::Fallback::CoreOrPP qw(clone);
 use Locale::TextDomain::UTF8 'Perinci-Sub-Gen-AccessTable-DBI';
-use Data::Clone;
 use DBI;
 use Perinci::Sub::Gen::AccessTable qw(gen_read_table_func);
+use Perinci::Sub::Util qw(gen_modified_sub);
 
 require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT_OK = qw(gen_read_dbi_table_func);
 
+# DATE
 # VERSION
 
-our %SPEC;
 my $label = "(gen_read_dbi_table_func)";
 
 sub __parse_schema {
@@ -25,9 +26,12 @@ sub __parse_schema {
     Data::Sah::normalize_schema($_[0]);
 }
 
-my $spec = clone $Perinci::Sub::Gen::AccessTable::SPEC{gen_read_table_func};
-$spec->{summary} = 'Generate function (and its metadata) to read DBI table';
-$spec->{description} = <<'_';
+gen_modified_sub(
+    output_name => 'gen_read_dbi_table_func',
+    install_sub => 0,
+    base_name   => 'Perinci::Sub::Gen::AccessTable::gen_read_table_func',
+    summary     => 'Generate function (and its metadata) to read DBI table',
+    description => <<'_',
 
 The generated function acts like a simple single table SQL SELECT query,
 featuring filtering, ordering, and paging, but using arguments as the 'query
@@ -36,13 +40,22 @@ API function. Please see Perinci::Sub::Gen::AccessTable's documentation for more
 details on what arguments the generated function will accept.
 
 _
-delete $spec->{args}{table_data};
-$spec->{args}{table_name} = {
-    req => 1,
-    schema => 'str*',
-    summary => 'DBI table name',
-};
-$spec->{args}{table_spec}{description} = <<'_';
+    remove_args => ['table_data'],
+    add_args    => {
+        table_name => {
+            req => 1,
+            schema => 'str*',
+            summary => 'DBI table name',
+        },
+        dbh => {
+            schema => 'obj*',
+            summary => 'DBI database handle',
+        },
+    },
+    modify_args => {
+        table_spec => sub {
+            my $as = shift;
+            $as->{description} = <<'_';
 
 Just like Perinci::Sub::Gen::AccessTable's table_spec, except that each field
 specification can have a key called `db_field` to specify the database field (if
@@ -50,11 +63,9 @@ different). Currently this is required. Future version will be able to generate
 table_spec from table schema if table_spec is not specified.
 
 _
-$spec->{args}{dbh} = {
-    schema => 'obj*',
-    summary => 'DBI database handle',
-};
-$SPEC{gen_read_dbi_table_func} = $spec;
+        },
+    },
+);
 sub gen_read_dbi_table_func {
     my %args = @_;
 
