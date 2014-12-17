@@ -1,5 +1,8 @@
 package Perinci::Sub::Gen::AccessTable::DBI;
 
+# DATE
+# VERSION
+
 use 5.010001;
 use strict;
 use warnings;
@@ -15,9 +18,6 @@ use Perinci::Sub::Util qw(gen_modified_sub);
 require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT_OK = qw(gen_read_dbi_table_func);
-
-# DATE
-# VERSION
 
 my $label = "(gen_read_dbi_table_func)";
 
@@ -201,7 +201,7 @@ sub gen_read_dbi_table_func {
 }
 
 1;
-# ABSTRACT: Generate function (and its Rinci metadata) to access DBI table data
+# ABSTRACT:
 
 =head1 SYNOPSIS
 
