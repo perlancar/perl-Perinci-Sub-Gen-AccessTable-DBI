@@ -308,15 +308,6 @@ Early versions tested on: SQLite.
 It is often not a good idea to expose your database schema directly as API.
 
 
-=head1 TODO
-
-=over 4
-
-=item * Generate table_spec from database schema, if unspecified
-
-=back
-
-
 =head1 FAQ
 
 
