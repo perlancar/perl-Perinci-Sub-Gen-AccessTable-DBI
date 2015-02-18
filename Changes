@@ -1,5 +1,13 @@
 Revision history for Perinci-Sub-Gen-AccessTable-DBI
 
+0.12    2015-02-18 (PERLANCAR)
+
+	- No functional changes.
+
+	- Use Data::Sah::Normalize instead of Data::Sah when just for
+	  normalizing schemas.
+
+
 0.11     2014-05-27 (SHARYANTO)
 
          - No functional changes.
