@@ -22,8 +22,8 @@ our @EXPORT_OK = qw(gen_read_dbi_table_func);
 my $label = "(gen_read_dbi_table_func)";
 
 sub __parse_schema {
-    require Data::Sah;
-    Data::Sah::normalize_schema($_[0]);
+    require Data::Sah::Normalize;
+    Data::Sah::Normalize::normalize_schema($_[0]);
 }
 
 gen_modified_sub(
