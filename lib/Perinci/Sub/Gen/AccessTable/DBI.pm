@@ -65,6 +65,10 @@ table_spec from table schema if table_spec is not specified.
 _
         },
     },
+    modify_meta => sub {
+        my $meta = shift;
+        push @{ $meta->{'x.dynamic_generator_modules'} }, __PACKAGE__;
+    },
 );
 sub gen_read_dbi_table_func {
     my %args = @_;
