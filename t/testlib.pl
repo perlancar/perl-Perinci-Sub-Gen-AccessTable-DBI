@@ -52,9 +52,9 @@ sub test_gen {
                 ok($args->{$a}, "common arg '$a' generated");
             }
             if (!defined($fargs{enable_search}) || $fargs{enable_search}) {
-                ok( $args->{q}, "search arg 'q' generated");
+                ok( $args->{query}, "search arg 'query' generated");
             } else {
-                ok(!$args->{q}, "search arg 'q' not generated");
+                ok(!$args->{query}, "search arg 'query' not generated");
             }
         }
 

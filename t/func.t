@@ -221,8 +221,8 @@ test_gen(
     post_test => sub {
         my ($res) = @_;
 
-        test_query(\&main::foo1, {q=>"b"}, 1, 'search b');
-        test_query(\&main::foo1, {q=>"B"}, 1, 'search B');
+        test_query(\&main::foo1, {query=>"b"}, 1, 'search b');
+        test_query(\&main::foo1, {query=>"B"}, 1, 'search B');
     },
 );
 

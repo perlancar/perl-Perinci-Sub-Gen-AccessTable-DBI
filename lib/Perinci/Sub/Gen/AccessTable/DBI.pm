@@ -109,7 +109,7 @@ sub gen_read_dbi_table_func {
         my $filtered;
         my @wheres;
         # XXX case_insensitive_search & word_search not yet observed
-        my $q = $query->{q};
+        my $q = $query->{query};
         if (defined($q) && @searchable_fields) {
             push @wheres, "(".
                 join(" OR ", map {$qi->($fspecs->{$_}{db_field}//$_)." LIKE ".
