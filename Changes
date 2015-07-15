@@ -1,5 +1,13 @@
 Revision history for Perinci-Sub-Gen-AccessTable-DBI
 
+0.13    2015-07-15 (PERLANCAR)
+
+	- Adjust to Perinci::Sub::Gen::AccessTable 0.46+ (q renamed to
+	  query).
+
+	- Add x.dynamic_generator_modules attribute to function metadata.
+
+
 0.12    2015-02-18 (PERLANCAR)
 
 	- No functional changes.
