@@ -2,7 +2,7 @@ use 5.010;
 use strict;
 use warnings;
 use experimental 'smartmatch';
-use Log::Any '$log';
+use Log::Any::IfLOG '$log';
 
 use DBI;
 use File::Temp qw(tempfile);

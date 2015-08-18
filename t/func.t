@@ -6,7 +6,7 @@ use 5.010;
 use strict;
 use warnings;
 use FindBin '$Bin';
-use Log::Any '$log';
+use Log::Any::IfLOG '$log';
 use lib $Bin, "$Bin/t";
 
 use Test::More 0.96;
