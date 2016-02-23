@@ -27,13 +27,13 @@ test_gen(
 
         my $fres;
 
-        $fres = $func->(sort=>"x");
+        $fres = $func->(sort=>["x"]);
         is($fres->[0], 400, "sort on unknown sort fields -> fail");
 
-        $fres = $func->(sort=>"-a");
+        $fres = $func->(sort=>["-a"]);
         is($fres->[0], 400, "sort on unsortable fields -> fail");
 
-        $fres = $func->(sort=>"s", detail=>1);
+        $fres = $func->(sort=>["s"], detail=>1);
         subtest "ascending sort" => sub {
             is($fres->[0], 200, "status")
                 or diag explain $fres;
@@ -42,7 +42,7 @@ test_gen(
                 or diag explain \@r;
         };
 
-        $fres = $func->(sort=>"-s", detail=>1);
+        $fres = $func->(sort=>["-s"], detail=>1);
         subtest "descending sort" => sub {
             is($fres->[0], 200, "status")
                 or diag explain $fres;
@@ -51,7 +51,7 @@ test_gen(
                 or diag explain \@r;
         };
 
-        $fres = $func->(sort=>"b, -s", detail=>1);
+        $fres = $func->(sort=>["b","-s"], detail=>1);
         subtest "multiple fields sort" => sub {
             is($fres->[0], 200, "status")
                 or diag explain $fres;
@@ -190,7 +190,7 @@ test_gen(
         my $func = $res->[2]{code};
 
         test_query(
-            $func, {sort=>"s", result_limit=>2},
+            $func, {sort=>["s"], result_limit=>2},
             sub {
                 my ($rr) = @_;
                 is(scalar(@$rr), 2, "num of results = 2");
@@ -199,7 +199,7 @@ test_gen(
             },
             'result_limit after ordering');
         test_query(
-            $func, {sort=>"s", result_start=>3, result_limit=>2},
+            $func, {sort=>["s"], result_start=>3, result_limit=>2},
             sub {
                 my ($rr) = @_;
                 is(scalar(@$rr), 2, "num of results = 2");
