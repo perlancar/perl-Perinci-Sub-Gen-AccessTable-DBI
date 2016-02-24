@@ -1,5 +1,13 @@
 Revision history for Perinci-Sub-Gen-AccessTable-DBI
 
+0.17    2016-02-24 (PERLANCAR)
+
+	- No functional changes.
+
+	- Update prereq minimum version Perinci::Sub::Gen::AccessTable to
+	  0.55 (incompatible with previous version).
+
+
 0.16    2016-02-23 (PERLANCAR)
 
 	- Adjust to Perinci::Sub::Gen::AccessTable 0.55 [RT#112293].
