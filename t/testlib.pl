@@ -8,7 +8,7 @@ use DBI;
 use File::Temp qw(tempfile);
 
 use Perinci::Sub::Gen::AccessTable::DBI qw(gen_read_dbi_table_func);
-use Test::More 0.96;
+use Test::More 0.98;
 
 sub test_gen {
     my (%args) = @_;

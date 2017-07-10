@@ -7,7 +7,7 @@ use 5.010001;
 use strict;
 use warnings;
 use experimental 'smartmatch';
-use Log::Any::IfLOG '$log';
+use Log::ger;
 
 use Function::Fallback::CoreOrPP qw(clone);
 use Locale::TextDomain::UTF8 'Perinci-Sub-Gen-AccessTable-DBI';
@@ -91,7 +91,7 @@ sub gen_read_dbi_table_func {
 
         my ($db) = $dbh->get_info(17);
         unless ($db =~ /\A(SQLite|mysql|Pg)\z/) {
-            $log->warnf("$label Database is not supported: %s", $db);
+            log_warn("$label Database is not supported: %s", $db);
         }
 
         # function to quote identifier, e.g. `col` or "col"
@@ -188,7 +188,7 @@ sub gen_read_dbi_table_func {
             (@orders ? " ORDER BY ".join(",", @orders) : ""),
             $limit,
         );
-        $log->tracef("$label SQL=%s", $sql);
+        log_trace("$label SQL=%s", $sql);
 
         my $sth = $dbh->prepare($sql);
         $sth->execute or die "Can't query: ".$sth->errstr;
