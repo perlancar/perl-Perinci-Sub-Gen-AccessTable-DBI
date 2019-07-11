@@ -1,11 +1,11 @@
-0.18    2017-07-10 (PERLANCAR)
+0.18    2017-07-10  Released-By: PERLANCAR
 
 	- No functional changes.
 
 	- Replace Log::Any with Log::ger.
 
 
-0.17    2016-02-24 (PERLANCAR)
+0.17    2016-02-24  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -13,14 +13,14 @@
 	  0.55 (incompatible with previous version).
 
 
-0.16    2016-02-23 (PERLANCAR)
+0.16    2016-02-23  Released-By: PERLANCAR
 
 	- Adjust to Perinci::Sub::Gen::AccessTable 0.55 [RT#112293].
 
 	- Bump prereq version Log::Any::IfLOG to 0.07.
 
 
-0.15    2015-09-04 (PERLANCAR)
+0.15    2015-09-04  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -29,14 +29,14 @@
 	  requirement.
 
 
-0.14    2015-08-18 (PERLANCAR)
+0.14    2015-08-18  Released-By: PERLANCAR
 
 	- No functional changes.
 
 	- Switch from Log::Any to Log::Any::IfLOG.
 
 
-0.13    2015-07-15 (PERLANCAR)
+0.13    2015-07-15  Released-By: PERLANCAR
 
 	- Adjust to Perinci::Sub::Gen::AccessTable 0.46+ (q renamed to
 	  query).
@@ -44,7 +44,7 @@
 	- Add x.dynamic_generator_modules attribute to function metadata.
 
 
-0.12    2015-02-18 (PERLANCAR)
+0.12    2015-02-18  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -52,37 +52,37 @@
 	  normalizing schemas.
 
 
-0.11     2014-05-27 (SHARYANTO)
+0.11     2014-05-27  Released-By: SHARYANTO
 
          - No functional changes.
 
          - Update prereq version to avoid CT failure reports.
 
 
-0.10     2014-05-26 (SHARYANTO)
+0.10     2014-05-26  Released-By: SHARYANTO
 
          - No functional changes.
 
          - App 'use experimental smartmatch' for perl 5.18+.
 
 
-0.09     2013-12-13 (SHARYANTO)
+0.09     2013-12-13  Released-By: SHARYANTO
 
          - No functional changes. Use Locale::TextDomain::UTF8.
 
 
-0.08     2013-12-12 (SHARYANTO)
+0.08     2013-12-12  Released-By: SHARYANTO
 
          - No functional changes. Switch from Locale::Maketext to
            Locale::TextDomain.
 
 
-0.07     2013-07-19 (SHARYANTO)
+0.07     2013-07-19  Released-By: SHARYANTO
 
          - No functional changes. Fix test result [CT].
 
 
-0.06     2012-11-02 (SHARYANTO)
+0.06     2012-11-02  Released-By: SHARYANTO
 
          - No functional changes.
 
@@ -93,12 +93,12 @@
          - No longer use Perinci::Exporter.
 
 
-0.05     2012-08-07 (SHARYANTO)
+0.05     2012-08-07  Released-By: SHARYANTO
 
          - No functional changes. Use Perinci::Exporter.
 
 
-0.04     2012-08-07 (SHARYANTO)
+0.04     2012-08-07  Released-By: SHARYANTO
 
          [BUG FIXES]
 
@@ -108,19 +108,19 @@
          - Fix creating temp files in tests.
 
 
-0.03     2012-08-07 (SHARYANTO)
+0.03     2012-08-07  Released-By: SHARYANTO
 
          - No functional changes. Adjust test to not open tempfile to see if
            this will alleviate 'db is locked' SQLite error CT reports (mostly on
            OpenBSD/FreeBSD).
 
 
-0.02     2012-07-11 (SHARYANTO)
+0.02     2012-07-11  Released-By: SHARYANTO
 
          - No functional changes. Rebuild to update POD to
            Perinci::Sub::Gen::AccessTable 0.14.
 
 
-0.01     2012-07-05 (SHARYANTO)
+0.01     2012-07-05  Released-By: SHARYANTO
 
          - First release.
